@@ -1,5 +1,5 @@
 /* ============================================================
-   Tharindu Ekanayake — personal homepage
+   Tharindu Ekanayake: personal homepage
    Theme: clean modern academic, light + dark
    ============================================================ */
 
@@ -134,6 +134,19 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
 .btn--ghost { background: var(--surface); color: var(--text); border-color: var(--border); }
 .btn--ghost:hover { border-color: var(--accent); color: var(--accent-ink); }
 
+/* CV picker in the nav */
+.cv-menu { position: relative; }
+.cv-menu summary { list-style: none; }
+.cv-menu summary::-webkit-details-marker { display: none; }
+.cv-menu__list {
+  position: absolute; right: 0; top: calc(100% + 8px); min-width: 210px;
+  display: flex; flex-direction: column; padding: 6px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); box-shadow: var(--shadow-md); z-index: 110;
+}
+.cv-menu__list a { color: var(--text); font-size: 14px; font-weight: 500; padding: 9px 12px; border-radius: 8px; }
+.cv-menu__list a:hover { background: var(--accent-soft); color: var(--accent-ink); text-decoration: none; }
+
 /* ===================== SECTION SCAFFOLD ===================== */
 .section { max-width: var(--maxw); margin: 0 auto; padding: 84px 24px; }
 .section--alt { max-width: none; background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
@@ -232,6 +245,10 @@ html[data-theme="dark"] .exp__badge--now { background: #11301f; color: #4ade80; 
 .subrole__points li { margin-bottom: 8px; }
 .subrole__points strong { color: var(--text); }
 .subrole__points--prose { padding-left: 0; list-style: none; }
+.subrole__head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.subrole__tag { font-size: 11.5px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--accent-ink); background: var(--accent-soft); padding: 2px 9px; border-radius: 999px; }
+.subrole__meta a { font-weight: 600; }
+.subrole__intro { color: var(--text-soft); margin: 0 0 10px; font-style: italic; }
 
 /* tag pills */
 .tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 12px 0 0; }
@@ -287,6 +304,22 @@ html[data-theme="dark"] .exp__badge--now { background: #11301f; color: #4ade80; 
 .more-pubs__list li { color: var(--text-soft); font-size: 14.5px; padding: 12px 0; border-top: 1px solid var(--border); }
 .more-pubs__year { display: inline-block; font-weight: 700; color: var(--accent-ink); margin-right: 10px; }
 
+/* ===================== PROJECTS ===================== */
+.projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+.project {
+  display: flex; flex-direction: column;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 24px 26px; box-shadow: var(--shadow-sm);
+  transition: box-shadow .2s, border-color .2s, transform .15s;
+}
+.project:hover { box-shadow: var(--shadow-md); border-color: color-mix(in srgb, var(--accent) 35%, var(--border)); transform: translateY(-2px); }
+.project__kind { display: block; color: var(--accent-ink); font-weight: 700; font-size: 12.5px; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 6px; }
+.project__title { font-size: 18.5px; font-weight: 700; letter-spacing: -0.01em; }
+.project__desc { color: var(--text-soft); font-size: 14.5px; margin: 12px 0 10px; }
+.project__points { margin: 0 0 18px; padding-left: 18px; color: var(--text-mute); font-size: 14px; }
+.project__points li { margin-bottom: 5px; }
+.project .pub__links { margin-top: auto; }
+
 /* ===================== EDUCATION ===================== */
 .edu { display: flex; flex-direction: column; gap: 18px; }
 .edu__item {
@@ -297,10 +330,11 @@ html[data-theme="dark"] .exp__badge--now { background: #11301f; color: #4ade80; 
 .edu__year { color: var(--accent-ink); font-weight: 700; font-size: 15px; }
 .edu__content h3 { font-size: 17px; font-weight: 700; margin-bottom: 4px; }
 .edu__content p { color: var(--text-mute); margin: 0; font-size: 14.5px; }
+.edu__content p + p { margin-top: 6px; }
 
 .skills { margin-top: 50px; }
 .skills__title { font-size: 19px; font-weight: 700; margin-bottom: 20px; }
-.skills__groups { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.skills__groups { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px 22px; }
 .skills__group h4 { font-size: 14px; color: var(--text-mute); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 12px; }
 
 /* ===================== CONTACT ===================== */
@@ -329,6 +363,7 @@ html[data-theme="dark"] .exp__badge--now { background: #11301f; color: #4ade80; 
   .hero__lede { margin-left: auto; margin-right: auto; }
   .hero__cta, .hero__socials { justify-content: center; }
   .skills__groups { grid-template-columns: repeat(2, 1fr); }
+  .projects { grid-template-columns: 1fr; }
   .pub { grid-template-columns: 1fr; }
   .pub__thumb { min-height: 130px; }
 }
