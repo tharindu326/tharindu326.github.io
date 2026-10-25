@@ -49,3 +49,15 @@
 
 /* ---------- Footer year ---------- */
 document.getElementById("year").textContent = new Date().getFullYear();
+
+/* ---------- CV menu: close on outside click or after choosing ---------- */
+(function () {
+  const menu = document.querySelector(".cv-menu");
+  if (!menu) return;
+  document.addEventListener("click", (e) => {
+    if (!menu.contains(e.target)) menu.removeAttribute("open");
+  });
+  menu.querySelectorAll("a").forEach((a) =>
+    a.addEventListener("click", () => menu.removeAttribute("open"))
+  );
+})();
